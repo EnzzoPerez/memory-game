@@ -1,0 +1,23 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+div:focus {
+  outline: none !important;
+}
+
+.ReactFlipCard__Back{
+  position: absolute;
+}
+
+.ReactFlipCard__Front{
+  position: unset;
+}
+
+.ReactFlipCard--enabled.ReactFlipCard:hover .ReactFlipCard__Front, .ReactFlipCard--flipped .ReactFlipCard__Front{
+  position: absolute;
+}
+
+.ReactFlipCard--enabled.ReactFlipCard:hover .ReactFlipCard__Back, .ReactFlipCard--flipped .ReactFlipCard__Back{
+  position: inherit;
+}
