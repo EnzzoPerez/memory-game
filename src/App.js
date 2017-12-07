@@ -86,7 +86,8 @@ class App extends Component {
 
   verificarVictoria(baraja){
     if( baraja.filter((carta)=> !carta.adivinado).length === 0){
-      alert(`Ganaste en ${this.state.fallas} intentos, manga de travesti`)
+      alert(`Ganaste en ${this.state.fallas} intentos.
+      Para jugar de nuevo pulsa el boton Reiniciar :).`)
       baraja.forEach(element => {
         element.adivinado = false
       });
