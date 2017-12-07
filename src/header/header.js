@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Icon, Label, Menu, Button } from 'semantic-ui-react'
 
 const Head = styled.header `
     height: 100px;
@@ -12,6 +13,7 @@ const Head = styled.header `
 const Title = styled.div`
     font-size: 25px;
     padding: 10px;
+    color: white;
 `;
 
 const BtnReinicio = styled.div `
@@ -19,6 +21,11 @@ const BtnReinicio = styled.div `
     left:12px;
     top: 58px;
 `;
+
+const Izq = styled.div`
+    display: flex;
+    align-items: center;
+`
 
 export default class Header extends React.Component{
     constructor(){
@@ -31,15 +38,23 @@ export default class Header extends React.Component{
     render(){
         return(
             <Head>
-                <Title>
-                    Jueguito de Memoria
-                </Title>
-                <BtnReinicio>
-                    <button onClick={this.handleReset} className="reiniciar">Reiniciar</button>
-                </BtnReinicio>
-                <div className="intentos">
-                    Intentos: {this.props.fallas}
+                <div>
+                    <Title>
+                        Jueguito de Memoria
+                    </Title>
+                    <BtnReinicio>
+                        <Button onClick={this.handleReset} color='blue'>Reiniciar</Button>
+                    </BtnReinicio>
                 </div>
+                
+                <Izq>
+                    <Menu compact>
+                        <Menu.Item as='a'>
+                            <Icon name='crosshairs' /> Intentos: 
+                            <Label color='red' size='small'>{this.props.fallas}</Label>
+                        </Menu.Item>
+                    </Menu>
+                </Izq>
             </Head>
         );
     }
