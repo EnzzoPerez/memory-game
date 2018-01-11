@@ -24,9 +24,10 @@ class App extends Component {
   }
 
   render() {
+    let barajaB = this.state.baraja
     return (
       <div className="App">
-        <Header fallas={this.state.fallas} reset={this.reiniciar}/>
+        <Header fallas={this.state.fallas} reset={() => this.reiniciar(barajaB)}/>
         <Board 
           baraja={this.state.baraja}
           pareja={this.state.parejaSelect}
@@ -88,20 +89,26 @@ class App extends Component {
     if( baraja.filter((carta)=> !carta.adivinado).length === 0){
       alert(`Ganaste en ${this.state.fallas} intentos.
       Para jugar de nuevo pulsa el boton Reiniciar :).`)
-      baraja.forEach(element => {
-        element.adivinado = false
-      });
-      this.reiniciar()
     }
   }
 
   reiniciar(){
+
     this.setState({
       baraja: getInitialState(),
       parejaSelect: [],
       comparing: false,
       fallas: 0
     });
+
+    setTimeout(()=>{
+      this.setState({
+        baraja: getInitialState(),
+        parejaSelect: [],
+        comparing: false,
+        fallas: 0
+      })
+    }, 300)
   }
 
 }
